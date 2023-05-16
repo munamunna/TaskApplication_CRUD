@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{%block tittle_block%}
+<title>home</title>
+{%endblock%}
+
+{%block body_block%}
+
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <tr>
+                    <th>Task</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                {%for t in tasks%}
+                <tr>
+                    <td>
+                        {{t.task_name}}
+                    </td>
+                    <td>
+                        {{t.user}}
+                    </td>
+                    <td>
+                        {{t.status}}
+                    </td>
+                    <td>{{t.created_date}}</td>
+                    <td>
+                        <a href="{%url 'task-detail' t.id%}" class="btn btn-outline-info">View</a>
+                        
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    
+    {%endblock%}
